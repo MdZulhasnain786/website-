@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasan Restaurant - Review Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Hasan Restaurant</h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="review.html" class="active">Review Us</a>
+            <a href="login.html">Login</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h2>Your Opinion Matters to Us</h2>
+        <p>How was the food? Tell us.</p>
+    </section>
+
+    <main class="container">
+        <section class="full-width">
+            <div class="review-section" id="review">
+                <h4>⭐ Add Your Feedback &amp; Rating</h4>
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label for="reviewName">Your Name (optional):</label>
+                        <input type="text" id="reviewName" maxlength="40" placeholder="e.g. Aisha">
+                    </div>
+                    <div class="form-group">
+                        <label for="dishSelect">Select Dish:</label>
+                        <select id="dishSelect" required>
+                            <option value="Hyderabadi Biryani">Hyderabadi Biryani</option>
+                            <option value="Chicken Butter Masala">Chicken Butter Masala</option>
+                            <option value="Paneer Tikka">Paneer Tikka</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ratingValue">Rating (1 to 5 Stars):</label>
+                        <select id="ratingValue" required>
+                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                            <option value="3">⭐⭐⭐ (3/5)</option>
+                            <option value="2">⭐⭐ (2/5)</option>
+                            <option value="1">⭐ (1/5)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="userReview">Your Review:</label>
+                        <textarea id="userReview" rows="3" maxlength="300" placeholder="How was the food? Write your review..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline">Submit Review</button>
+                </form>
+            </div>
+
+            <h3 class="reviews-title">Recent Reviews</h3>
+            <div id="reviewList" class="review-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hasan Restaurant - Gachibowli, Hyderabad.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

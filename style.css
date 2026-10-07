@@ -1,0 +1,782 @@
+/* ==========================================================================
+   Hasan Restaurant - Shared Stylesheet
+   Used by: index.html, menu.html, review.html, login.html, contact.html
+   ========================================================================== */
+
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --secondary-color: #f39c12;
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --card-bg: #fff;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* ---------------- Header / Navbar ---------------- */
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 10px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: var(--accent-color);
+    margin-right: auto;
+}
+
+/* Cart button in header */
+.cart-btn {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cart-btn:hover {
+    background: #c0392b;
+}
+
+/* Hamburger (three-line) button */
+.menu-toggle {
+    margin-left: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Turns into an X when menu is open */
+.menu-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* All links live inside this dropdown */
+nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 220px;
+    background-color: var(--primary-color);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+nav.open {
+    display: flex;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+nav a:hover {
+    background-color: rgba(255,255,255,0.06);
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Highlights the link for the page currently open */
+nav a.active {
+    color: var(--accent-color);
+    border-left: 4px solid var(--accent-color);
+}
+
+/* ---------------- Hero / Intro Section ---------------- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                url('images/hero.svg') center/cover no-repeat;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Smaller banner-style hero used on inner pages (Menu, Login, Contact, Review) */
+.page-hero {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.page-hero h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.page-hero p {
+    font-size: 15px;
+    opacity: 0.85;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.offer-banner {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* ---------------- Layout ---------------- */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+section {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    flex: 1;
+    min-width: 300px;
+}
+
+.full-width {
+    width: 100%;
+    flex: none;
+}
+
+h3 {
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 22px;
+}
+
+/* ---------------- Menu Grid & Cards ---------------- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.menu-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.75);
+    color: white;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.badge-bestseller {
+    background: #e67e22;
+}
+
+.badge-chef {
+    background: #27ae60;
+}
+
+.badge-veg {
+    background: #27ae60;
+}
+
+.image-box {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #e0e0e0;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.menu-details {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.menu-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.rating-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.stars {
+    color: #f1c40f;
+    font-size: 14px;
+}
+
+.review-count {
+    color: #777;
+}
+
+.menu-details p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.menu-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.price-tag {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 18px;
+}
+
+/* ---------------- Review Section ---------------- */
+.review-section {
+    margin-top: 25px;
+    background: #fdfdfd;
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.review-section h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.rating-select {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* ---------------- Forms ---------------- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.info-item {
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.info-item strong {
+    color: var(--accent-color);
+    display: inline-block;
+    width: 100px;
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+
+/* ---------------- Cart drawer ---------------- */
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 200;
+}
+
+.cart-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 380px;
+    max-width: 100%;
+    background: var(--card-bg);
+    box-shadow: -4px 0 16px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.3s, visibility 0.3s;
+    z-index: 210;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.cart-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px 0;
+}
+
+.cart-head h3 {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.cart-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    color: var(--primary-color);
+}
+
+.cart-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.cart-empty {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.cart-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.cart-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-each {
+    font-size: 12px;
+    color: #777;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.qty-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.qty-num {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cart-line {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.cart-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    justify-self: end;
+}
+
+.cart-summary {
+    margin: 15px 0;
+}
+
+.sum-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 14px;
+}
+
+.sum-discount {
+    color: #27ae60;
+}
+
+.sum-total {
+    font-size: 18px;
+    font-weight: bold;
+    border-top: 2px solid var(--primary-color);
+    margin-top: 6px;
+    padding-top: 8px;
+}
+
+.cart-note {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.cart-checkout,
+.cart-clear {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.order-done-icon {
+    font-size: 48px;
+    text-align: center;
+    margin: 20px 0 10px;
+}
+
+.order-done-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+/* ---------------- Toast messages ---------------- */
+.toast-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 300;
+    width: max-content;
+    max-width: 92vw;
+}
+
+.toast {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    font-size: 14px;
+    animation: toast-in 0.3s;
+    transition: opacity 0.3s;
+}
+
+.toast.hide {
+    opacity: 0;
+}
+
+@keyframes toast-in {
+    from { transform: translateY(10px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+/* ---------------- Form errors / notes ---------------- */
+.field-error {
+    display: block;
+    color: var(--accent-color);
+    font-size: 12px;
+    margin-top: 4px;
+    min-height: 1em;
+}
+
+.demo-note {
+    font-size: 12px;
+    color: #777;
+    margin-top: 12px;
+    text-align: center;
+}
+
+#loggedInBox .btn {
+    margin-right: 8px;
+}
+
+/* ---------------- Reviews list ---------------- */
+.reviews-title {
+    margin-top: 30px;
+}
+
+.review-list {
+    display: grid;
+    gap: 12px;
+}
+
+.review-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 12px 15px;
+    background: #fdfdfd;
+}
+
+.review-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.review-text {
+    font-size: 14px;
+    margin-bottom: 4px;
+    overflow-wrap: anywhere;
+}
+
+.review-meta {
+    color: #777;
+}
+
+/* ---------------- Contact extras ---------------- */
+.contact-link {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.open-status {
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.open-status.is-open { color: #27ae60; }
+.open-status.is-closed { color: var(--accent-color); }
+
+/* ---------------- Missing image placeholder ---------------- */
+.image-box.img-missing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 14px;
+}
+
+.image-box.img-missing::after {
+    content: "🍽️ Image coming soon";
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 16px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    nav {
+        left: 0;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .hero h2 {
+        font-size: 26px;
+    }
+
+    section {
+        min-width: 100%;
+    }
+}
+
+/* ---------------- Why Choose Us ---------------- */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.why-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 22px 18px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.why-icon {
+    font-size: 38px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.why-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.why-card p {
+    font-size: 13px;
+    color: #666;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasan Restaurant - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Hasan Restaurant</h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="review.html">Review Us</a>
+            <a href="login.html" class="active">Login</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h2>Easy Login</h2>
+        <p>Log in to place your order.</p>
+    </section>
+
+    <main class="container">
+        <section id="login" style="max-width: 450px; margin: 0 auto;">
+            <div id="loggedInBox" hidden>
+                <h3>You're logged in</h3>
+                <p id="loggedInText" class="info-item"></p>
+                <a href="menu.html" class="btn">Go to Menu</a>
+                <button type="button" class="btn btn-outline" id="logoutBtn">Logout</button>
+            </div>
+
+            <div id="loginBox">
+                <h3>Login</h3>
+                <form id="loginForm" novalidate>
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input type="tel" id="mobile" inputmode="numeric" maxlength="10" placeholder="Enter your 10-digit number" autocomplete="tel">
+                        <small class="field-error" id="mobileError"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter password (min 6 characters)" autocomplete="current-password">
+                        <small class="field-error" id="passwordError"></small>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Login</button>
+                </form>
+                <p class="demo-note">Demo login: no real account is created and your password is never saved.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hasan Restaurant - Gachibowli, Hyderabad.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

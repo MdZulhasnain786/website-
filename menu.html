@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasan Restaurant - Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Hasan Restaurant</h1>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="menu.html" class="active">Menu</a>
+            <a href="review.html">Review Us</a>
+            <a href="login.html">Login</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h2>Our Special Menu</h2>
+        <p>Fresh and delicious dishes, every day for you.</p>
+    </section>
+
+    <main class="container">
+        <section class="full-width">
+            <h3>Menu &amp; Ratings</h3>
+
+            <div class="menu-grid">
+
+                <article class="menu-card" data-dish="Hyderabadi Biryani">
+                    <span class="badge badge-bestseller">🔥 Bestseller</span>
+                    <div class="image-box">
+                        <img src="images/biryani.jpg" alt="Hyderabadi Biryani">
+                    </div>
+                    <div class="menu-details">
+                        <h4>Hyderabadi Biryani</h4>
+                        <div class="rating-box">
+                            <span class="stars"></span>
+                            <span class="rating-value"></span>
+                            <span class="review-count"></span>
+                        </div>
+                        <p>Special Dum Biryani cooked with flavorful spices and basmati rice.</p>
+                        <div class="menu-price">
+                            <span class="price-tag">₹220</span>
+                            <button class="btn add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-dish="Chicken Butter Masala">
+                    <span class="badge badge-chef">👨‍🍳 Chef Special</span>
+                    <div class="image-box">
+                        <img src="images/butter-chicken.jpg" alt="Chicken Butter Masala">
+                    </div>
+                    <div class="menu-details">
+                        <h4>Chicken Butter Masala</h4>
+                        <div class="rating-box">
+                            <span class="stars"></span>
+                            <span class="rating-value"></span>
+                            <span class="review-count"></span>
+                        </div>
+                        <p>Rich and creamy gravy cooked with tender chicken pieces.</p>
+                        <div class="menu-price">
+                            <span class="price-tag">₹260</span>
+                            <button class="btn add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="menu-card" data-dish="Paneer Tikka">
+                    <span class="badge badge-veg">🥦 Pure Veg</span>
+                    <div class="image-box">
+                        <img src="images/paneer-tikka.jpg" alt="Paneer Tikka">
+                    </div>
+                    <div class="menu-details">
+                        <h4>Paneer Tikka</h4>
+                        <div class="rating-box">
+                            <span class="stars"></span>
+                            <span class="rating-value"></span>
+                            <span class="review-count"></span>
+                        </div>
+                        <p>Fresh cottage cheese marinated in Indian spices and grilled.</p>
+                        <div class="menu-price">
+                            <span class="price-tag">₹180</span>
+                            <button class="btn add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <br>
+            <a href="review.html" class="btn btn-outline">Review a Dish →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hasan Restaurant - Gachibowli, Hyderabad.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
